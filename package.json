@@ -1,0 +1,24 @@
+{
+  "name": "10-employeetracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleahwhite/10-employeetracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleahwhite/10-employeetracker/issues"
+  },
+  "homepage": "https://github.com/aleahwhite/10-employeetracker#readme",
+  "dependencies": {
+    "mysql2": "^3.9.1",
+    "inquirer": "^9.2.13"
+  }
+}
