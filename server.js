@@ -1,5 +1,5 @@
-const inquirer = require("inquirer");
-const mysql2 = require("mysql2");
+import inquirer from "inquirer";
+import mysql2 from "mysql2";
 
 const connection = mysql2.createConnection({
     host: 'localhost',
@@ -31,7 +31,7 @@ function runPrompt() {
 
     }).then(answer => {
 
-        switch (answer.action) {
+        switch (answer.options) {
             case 'View all departments':
                 viewDepartments();
                 break;
@@ -73,7 +73,7 @@ function viewDepartments() {
 }
 
 function viewRoles() {
-    let query = 'SELECT * FROM roles';
+    let query = 'SELECT * FROM role';
     connection.query(query, (err, res) => {
         if (err) throw err;
         console.table(res);
@@ -82,7 +82,7 @@ function viewRoles() {
 }
 
 function viewEmployee() {
-    let query = 'SELECT * FROM employees';
+    let query = 'SELECT * FROM employee';
     connection.query(query, (err, res) => {
         if (err) throw err;
         console.table(res);
@@ -171,7 +171,7 @@ function addEmployee() {
         name: 'managerID'
         }
     ]).then(answer => {
-        let query = 'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?'
+        let query = 'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)'
         connection.query(query, [answer.firstName, answer.lastName, answer.role, answer.managerID], (err,res) => {
             if (err) throw err;
             console.table(res);
